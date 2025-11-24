@@ -1,0 +1,23 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Engagement rate by category (bar plot)
+plt.figure(figsize=(10, 6))
+sns.barplot(data=df, x='category', y='engagement_rate', estimator='mean')
+plt.title('Average Engagement Rate by Category')
+plt.xticks(rotation=45)
+plt.show()
+
+# Views vs. Length category (box plot)
+plt.figure(figsize=(8, 6))
+sns.boxplot(data=df, x='length_category', y='views')
+plt.title('Views Distribution by Video Length')
+plt.yscale('log')  # Log scale for wide range
+plt.show()
+
+# Scatter plot: Views vs. Engagement Rate, colored by category
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=df, x='views', y='engagement_rate', hue='category', alpha=0.7)
+plt.title('Views vs. Engagement Rate by Category')
+plt.xscale('log')
+plt.show()
